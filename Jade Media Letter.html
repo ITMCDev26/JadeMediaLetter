@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Ms. Jade · Final Cut</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#16112a;--panel:#211a3d;--line:#3a3160;--cream:#f4efe4;--tung:#f3b04a;--rec:#ec3a4c;--mute:#a79fc4;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--ink);color:var(--cream);font:400 17px/1.6 "Instrument Sans",system-ui,sans-serif;min-height:100vh}
+.wrap{max-width:860px;margin:0 auto;padding:18px 16px 60px}
+.top{display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:14px;color:var(--mute)}
+.rec{display:flex;align-items:center;gap:8px;color:var(--cream)}
+.rec i{width:11px;height:11px;border-radius:50%;background:var(--rec);animation:b 1.2s steps(2) infinite}
+@keyframes b{50%{opacity:.15}}
+h1{font:800 clamp(34px,8vw,64px)/1 Syne,system-ui,sans-serif;margin:22px 0 6px;letter-spacing:-.02em}
+.sub{margin:0 0 18px;color:var(--mute);max-width:56ch}
+.stage{position:relative;height:clamp(320px,52vh,440px);border-radius:14px;overflow:hidden;background:
+linear-gradient(#ffffff10 1px,transparent 1px) 0 33.3%/100% 33.4%,linear-gradient(90deg,#ffffff10 1px,transparent 1px) 33.3% 0/33.4% 100%,#120d24;
+border:2px solid var(--line);touch-action:none;user-select:none;-webkit-user-select:none;outline:none}
+.stage:focus-visible{border-color:var(--tung)}
+.it{position:absolute;top:0;left:0;font-size:40px;line-height:1;will-change:transform;pointer-events:none}
+.vf{position:absolute;bottom:10px;left:0;width:96px;height:96px;will-change:transform;pointer-events:none}
+.vf b{position:absolute;width:22px;height:22px;border:3px solid var(--cream)}
+.vf b:nth-child(1){left:0;top:0;border-right:0;border-bottom:0}.vf b:nth-child(2){right:0;top:0;border-left:0;border-bottom:0}
+.vf b:nth-child(3){left:0;bottom:0;border-right:0;border-top:0}.vf b:nth-child(4){right:0;bottom:0;border-left:0;border-top:0}
+.vf span{position:absolute;inset:0;display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--rec)}
+.vf.hit b{border-color:var(--tung)}
+.hud{position:absolute;top:10px;left:12px;right:12px;display:flex;justify-content:space-between;font-size:13px;font-weight:600;color:var(--mute);pointer-events:none}
+.ov{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:20px;background:#120d24e6}
+.ov div{max-width:34ch}
+.ov h2{font:800 28px/1.1 Syne,sans-serif;margin:0 0 8px}
+.ov p{margin:0 0 16px;color:var(--mute)}
+button{font:600 16px "Instrument Sans",sans-serif;background:var(--rec);color:#fff;border:0;border-radius:999px;padding:12px 26px;cursor:pointer}
+button:hover{filter:brightness(1.1)}button:focus-visible{outline:3px solid var(--tung);outline-offset:3px}
+button.ghost{background:none;color:var(--mute);padding:8px 4px;text-decoration:underline;font-size:14px}
+.flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+.flash.go{animation:f .35s ease-out}
+@keyframes f{from{opacity:.75}to{opacity:0}}
+.strip{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:14px 0 4px;padding:12px 8px;background:#000;border-radius:8px;
+background-image:radial-gradient(circle,var(--ink) 3px,transparent 3.5px);background-size:14px 7px;background-repeat:repeat-x;background-position:0 2px}
+.fr{aspect-ratio:4/3;background:var(--panel);border:2px solid var(--line);border-radius:3px;display:grid;place-items:center;font-size:12px;color:var(--mute);position:relative;font-weight:600}
+.fr.on{border-color:var(--tung);color:var(--tung);background:#3a2a10}
+.fr em{position:absolute;left:0;bottom:0;height:3px;background:var(--rec);width:0;transition:width .2s}
+.hint{font-size:14px;color:var(--mute);margin:6px 0 0;display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+#script{margin-top:26px;display:grid;gap:14px}
+.card{background:var(--panel);border-left:4px solid var(--rec);border-radius:4px 12px 12px 4px;padding:16px 20px;animation:in .5s ease-out}
+@keyframes in{from{transform:translateY(14px);opacity:0}}
+.card small{display:block;color:var(--tung);font-weight:600;font-size:13px;margin-bottom:4px}
+.card p{margin:0 0 .7em;max-width:62ch}.card p:last-child{margin:0}
+.verse{font:700 20px/1.4 Syne,sans-serif}
+.sign{font:800 26px Syne,sans-serif;color:var(--tung)}
+@media (prefers-reduced-motion:reduce){.rec i,.card,.flash.go{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><span class="rec"><i></i>REC · EMD Media Team</span><span id="tc">00:00:00</span></div>
+  <h1>One last take for Ms. Jade</h1>
+  <p class="sub">Your message is locked on the reel. Move the viewfinder to catch media gear as it falls. Every two catches develops one more take.</p>
+
+  <div class="stage" id="stage" tabindex="0" aria-label="Game area. Move the pointer or use left and right arrow keys to move the viewfinder.">
+    <div class="hud"><span id="cnt">Caught 0</span><span id="nxt">Take 1 of 6</span></div>
+    <div class="vf" id="vf"><b></b><b></b><b></b><b></b><span>REC</span></div>
+    <div class="flash" id="fl"></div>
+    <div class="ov" id="ov"><div>
+      <h2>Ready when you are</h2>
+      <p>Drag your finger or mouse across the frame, or use the arrow keys, to catch the gear.</p>
+      <button id="go">Roll camera</button>
+    </div></div>
+  </div>
+
+  <div class="strip" id="strip" aria-hidden="true"></div>
+  <div class="hint"><span id="hint">Take 1 is waiting.</span><button class="ghost" id="skip">Skip the game, show the message</button></div>
+
+  <div id="script" aria-live="polite"></div>
+</div>
+
+<script>
+const GEAR=['🎬','🎥','📷','🎙️','🎧','🍿','🎞️','📸','💡','🎚️'];
+const TAKES=[
+ ['Hi, Ms. Jade!','We are so blessed to have you in EMD! It’s honestly hard to say goodbye to one of our master media creatives, but at the same time, we are so happy for you and celebrating with you as you step into another chapter of your life—the one you’ve been dreaming of! 🥳'],
+ ['','In just six months, we’ve gone through so many media things together, and grabe, it has been one exhausting but memorable ride! HAHAHAHA! I honestly don’t know where all your creative juices come from! Your creativity, passion, and dedication have been such a blessing to the team.'],
+ ['','May you continue to be a channel of blessing wherever God leads you, and may you never forget to let your light shine! And of course, don’t forget to mark your Mondays for our Monday runs and more cinema moments with the team! HAHAHAHA! We’re still claiming those moments with you!'],
+ ['','May God bless you, guide you, and keep His favor upon you in this new season of your life. Keep shining brightly and continue to share the light that God has placed within you. The team may be saying goodbye to having you around every day, but we will always be cheering you on in every new chapter!'],
+ ['verse','“Let your light shine before others, that they may see your good deeds and glorify your Father in heaven.”','Matthew 5:16'],
+ ['sign','This is not the end, just another beautiful beginning. God bless you always!','Revvvvv.']
+];
+const NEED=2, N=TAKES.length;
+const $=id=>document.getElementById(id);
+const stage=$('stage'),vf=$('vf'),strip=$('strip'),script=$('script');
+let caught=0,unlocked=0,running=false,items=[],last=0,spawn=0,x=0,tx=0,keys={},W=0,H=0,t0=0;
+
+for(let i=0;i<N;i++){const d=document.createElement('div');d.className='fr';d.innerHTML='Take '+(i+1)+'<em></em>';strip.appendChild(d)}
+const frames=[...strip.children];
+
+function size(){W=stage.clientWidth;H=stage.clientHeight;if(!x){x=tx=W/2-48}}
+addEventListener('resize',size);size();
+
+function pos(e){const r=stage.getBoundingClientRect();tx=Math.max(0,Math.min(W-96,e.clientX-r.left-48))}
+stage.addEventListener('pointermove',pos);
+stage.addEventListener('pointerdown',pos);
+addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){keys[e.key]=1;e.preventDefault()}});
+addEventListener('keyup',e=>{delete keys[e.key]});
+
+function unlock(i){
+  const t=TAKES[i],c=document.createElement('div');c.className='card';
+  let h='<small>Take '+(i+1)+' of '+N+'</small>';
+  if(t[0]==='verse')h+='<p class="verse">'+t[1]+'</p><p>— '+t[2]+'</p>';
+  else if(t[0]==='sign')h+='<p>'+t[1]+'</p><p class="sign">— '+t[2]+'</p>';
+  else h+=(t[0]?'<p><strong>'+t[0]+'</strong></p>':'')+'<p>'+t[1]+'</p>';
+  c.innerHTML=h;script.appendChild(c);
+  frames[i].classList.add('on');frames[i].querySelector('em').style.width='100%';
+  const f=$('fl');f.classList.remove('go');void f.offsetWidth;f.classList.add('go');
+  setTimeout(()=>c.scrollIntoView({behavior:'smooth',block:'nearest'}),60);
+}
+function hud(){
+  $('cnt').textContent='Caught '+caught;
+  if(unlocked<N){
+    $('nxt').textContent='Take '+(unlocked+1)+' of '+N;
+    const p=caught%NEED;frames[unlocked].querySelector('em').style.width=(p/NEED*100)+'%';
+    $('hint').textContent=(NEED-p)+' more catch'+(NEED-p>1?'es':'')+' to develop Take '+(unlocked+1)+'.';
+  }
+}
+function finish(){
+  running=false;items.forEach(o=>o.el.remove());items=[];
+  $('nxt').textContent='That’s a wrap';$('hint').textContent='All 6 takes developed.';
+  const o=$('ov');o.innerHTML='<div><h2>That’s a wrap, Ms. Jade! 🎬</h2><p>Scroll down for the full message.</p></div>';o.style.display='grid';
+}
+function got(){
+  caught++;vf.classList.add('hit');setTimeout(()=>vf.classList.remove('hit'),150);
+  if(caught%NEED===0){unlock(unlocked);unlocked++;if(unlocked===N){hud();finish();return}}
+  hud();
+}
+function loop(ts){
+  if(!running)return;
+  const dt=Math.min(40,ts-last)/1000;last=ts;
+  if(keys.ArrowLeft)tx=Math.max(0,tx-520*dt);if(keys.ArrowRight)tx=Math.min(W-96,tx+520*dt);
+  x+=(tx-x)*Math.min(1,dt*18);vf.style.transform='translateX('+x+'px)';
+  spawn-=dt;
+  if(spawn<=0){
+    const el=document.createElement('div');el.className='it';el.textContent=GEAR[Math.random()*GEAR.length|0];
+    stage.appendChild(el);items.push({el,px:12+Math.random()*(W-64),py:-48,v:120+Math.random()*90,r:(Math.random()-.5)*60,a:0});
+    spawn=.75+Math.random()*.4;
+  }
+  for(let i=items.length-1;i>=0;i--){
+    const o=items[i];o.py+=o.v*dt;o.a+=o.r*dt;
+    o.el.style.transform='translate('+o.px+'px,'+o.py+'px) rotate('+o.a+'deg)';
+    const cx=o.px+20,cy=o.py+20,top=H-106;
+    if(cy>top&&cy<H-6&&cx>x+4&&cx<x+92){o.el.remove();items.splice(i,1);got();if(!running)return}
+    else if(o.py>H){o.el.remove();items.splice(i,1)}
+  }
+  requestAnimationFrame(loop);
+}
+$('go').onclick=()=>{
+  $('ov').style.display='none';running=true;last=performance.now();stage.focus({preventScroll:true});requestAnimationFrame(loop);
+};
+$('skip').onclick=()=>{
+  while(unlocked<N){unlock(unlocked);unlocked++}
+  caught=N*NEED;finish();
+};
+setInterval(()=>{const s=((Date.now()-t0)/1000|0),p=n=>String(n).padStart(2,'0');$('tc').textContent=p(s/3600|0)+':'+p(s/60%60|0)+':'+p(s%60)},1000);
+t0=Date.now();
+</script>
+</body>
+</html>
